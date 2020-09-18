@@ -1,5 +1,7 @@
 <template>
-    
+    <div>
+    ShopComments
+    </div>
 </template>
 
 <script>
