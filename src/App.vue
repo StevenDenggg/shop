@@ -7,7 +7,14 @@
 
 <script>
 import FooterGuide from "./components/FooterGuide/FooterGuide.vue"
+
+
 export default {
+    mounted() {
+        this.$store.dispatch("getL")
+        this.$store.dispatch('getF')
+        this.$store.dispatch('getS')
+    },
     components: {
         FooterGuide
     }
