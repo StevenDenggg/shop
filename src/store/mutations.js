@@ -8,5 +8,14 @@ export default{
     },
     ["shops"](state,{shops}){
         state.shops = shops
+    },
+    ["items"](state,{shops}){
+        state.shops = shops
+    },
+    ["comments"](state,{comments}){
+        state.comments = comments
+    },
+    ["info"](state,{info}){
+        state.info = info
     }
 }

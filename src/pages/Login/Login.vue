@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div class="login_content">
-                <form>
+                <form @submit.prevent="login">
                     <div :class="{'on':isActive}">
                         <section class="login_message">
                             <input type="tel" maxlength="11" placeholder="手机号" v-model="phone">
@@ -39,10 +39,11 @@
                             </section>
                             <section class="login_message">
                                 <input type="text" maxlength="11" placeholder="验证码" v-model="captcha">
-                                <img
+                                <img ref="captcha"
                                     class="get_verification"
-                                    src="./images/captcha.svg"
+                                    src="http://localhost:4000/captcha"
                                     alt="captcha"
+                                    @click="getCaptcha"
                                 />
                             </section>
                         </section>
@@ -55,18 +56,26 @@
                 <i class="iconfont icon-arrow-left"></i>
             </a>
         </div>
+        <AlertTip :alertText="alertText" v-show="showAlert" @closeTip="showAlert=false"></AlertTip>
     </section>
 </template>
 
 <script>
+import AlertTip from "../../components/AlertTip/AlertTip"
 export default {
+    components: {
+        AlertTip,
+    },
     methods: {
+        getCaptcha(){
+            this.$refs.captcha.src = "http://localhost:4000/captcha?time=" + Date.now()
+        },
         back() {
             this.$router.back()
         },
         getCode(){
             if(this.leftTime==0){
-                this.leftTime = 10
+                this.leftTime = 30
                 let intervalId = setInterval(()=>{
                     this.leftTime--
                     if(this.leftTime<=0){
@@ -74,7 +83,28 @@ export default {
                     }
                 },1000)
             }
-            
+        },
+        login(){
+            if(this.isActive==true){ //短信登陆
+                if(!/^1\d{10}$/.test(this.phone)){
+                    this.alertText = "手机号格式有误"
+                    this.showAlert = true
+                }else if(!/^\d{6}$/.test(this.code)){
+                    this.alertText = "验证码格式有误"
+                    this.showAlert = true
+                }
+            }else{ //账号密码登陆
+                if(!this.name){
+                    this.alertText = "请输入用户名"
+                    this.showAlert = true
+                }else if(!this.pwd){
+                    this.alertText = "请输入密码"
+                    this.showAlert = true
+                }else if(!this.captcha){
+                    this.alertText = "请输入图形验证码"
+                    this.showAlert = true
+                }
+            }
         }
     },
     data() {
@@ -86,7 +116,9 @@ export default {
             pwd:"",
             code:"",
             name:"",
-            captcha:""
+            captcha:"",
+            alertText:"",
+            showAlert:false
         }
     },
 

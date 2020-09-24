@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
+    "mockjs": "^1.1.0",
     "stylus": "^0.54.8",
     "stylus-loader": "^3.0.2",
     "swiper": "^6.2.0",

@@ -1,10 +1,10 @@
 <template>
     <div class="shop_container">
         <ul v-if="shops.length" class="shop_list">
-            <li v-for="(shop,index) in shops" :key="index" class="shop_li border-1px">
+            <li @click='$router.push("/shop")' v-for="(shop,index) in shops" :key="index" class="shop_li border-1px">
                 <a>
                     <div class="shop_left">
-                        <img class="shop_img" :src="baseImgUrl + shop.image_path" />
+                        <img class="shop_img" src="./images/default.jpg">
                     </div>
                     <div class="shop_right">
                         <section class="shop_detail_header">
@@ -55,7 +55,7 @@ export default {
     },
     data() {
         return {
-            baseImgUrl: 'http://cangdu.org:8001/img/' //图片接口挂掉了(尚未解决)
+            baseImgUrl: 'http://cangdu.org:8001/img/' //图片接口挂掉了(尚未解决，只能先用本地图片代替)
         }
     },
     computed:{

@@ -4,5 +4,8 @@ export default{
     longitude:113.2903,
     address:{},
     foodTypes:[],
-    shops:[]
+    shops:[],
+    items:[],
+    comments:[],
+    info:{}
 }
