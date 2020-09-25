@@ -23,7 +23,7 @@ export default {
         ShopHeader
     },
     mounted () {
-        this.$store.dispatch("getInfo")
+        this.$store.dispatch("getInf")
     },
     
 }

@@ -28,7 +28,7 @@ export default{
             }
         })
     },
-    getItems({commit}){
+    getI({commit}){
         getItems().then(function(response){
             if(response.data.code===0){
                 let items = response.data.data
@@ -36,7 +36,7 @@ export default{
             }
         })
     },
-    getInfo({commit}){
+    getInf({commit}){
         getInfo().then(function(response){
             if(response.data.code===0){
                 let info = response.data.data
@@ -44,7 +44,7 @@ export default{
             }
         })
     },
-    getComments({commit}){
+    getC({commit}){
         getComments().then(function(response){
             if(response.data.code===0){
                 let comments = response.data.data

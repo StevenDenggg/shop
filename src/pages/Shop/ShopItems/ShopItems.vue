@@ -1,15 +1,16 @@
 <template>
-    <div>
+  <div>
     ShopItems
-    </div>
+  </div>
 </template>
+
 
 <script>
 export default {
-    
+
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" rel="stylesheet/stylus">
 
 </style>
