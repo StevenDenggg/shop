@@ -12,7 +12,7 @@ npm install
 npm run serve
 ```
 
-### 3.在另一个终端中运行后端项目(即shop_server文件夹;需要先开启mongodb服务)
+### 3.在另一个终端中运行后端项目(即shop-server文件夹;需要先开启mongodb服务)
 ```
 npm start
 ```
